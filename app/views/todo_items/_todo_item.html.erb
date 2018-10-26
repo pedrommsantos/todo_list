@@ -8,6 +8,11 @@
   <div class="todo_item">
    <p style="opacity: 0.4;"><strike><%= todo_item.content %></strike></p>
   </div>
+  <div>
+   <% todo_item.todo_tags.each do |todo_tag| %>
+  <p><%= todo_tag.content %></p>
+   <% end %>
+  </div>
   <div class="trash">
    <%= link_to todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data: { confirm: "Are you sure?" } do %>
     <i class="fa fa-trash"></i>
@@ -22,10 +27,21 @@
   <div class="todo_item">
    <p><%= todo_item.content %></p>
   </div>
+  
+  <div>
+   <% todo_item.todo_tags.each do |todo_tag| %>
+   <p><%= todo_tag.content %></p>
+   <% end %>
+  </div>
+
   <div class="trash">
    <%= link_to todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data: { confirm: "Are you sure?" } do %>
     <i class="fa fa-trash"></i>
    <% end %>
   </div>
+
+
  <% end %>
 </div>
+
+

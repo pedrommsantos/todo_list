@@ -1,0 +1,17 @@
+<h1>tags</h1>
+ 
+ <%= link_to 'new tag', new_todo_tag_path %>
+<table>
+  <tr>
+    <th>Tag Name</th>
+  </tr>
+ 
+  <% @todo_tags.each do |todo_tag| %>
+    <tr>
+      <td><%= todo_tag.content %></td>
+      <td><%= link_to 'show', todo_tag_path(todo_tag) %></td>
+      <td><%= link_to 'edit', edit_todo_tag_path(todo_tag) %></td>
+      <td><%= link_to 'destroy', todo_tag_path(todo_tag), method: :delete, data: { confirm: 'Delete?' } %></td>
+    </tr>
+  <% end %>
+</table>

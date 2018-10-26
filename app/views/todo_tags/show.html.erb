@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+<h2 class="todo_list_title">Tag Content</h2><br>
+<p class="todo_list_sub_title"><%= @todo_tag.content %></p>
+<div class="links">
+ <%= link_to 'Delete', todo_tag_path(@todo_tag), method: :delete, data: { confirm: "Are you sure?" } %> |
+ <%= link_to 'Edit', edit_todo_tag_path(@todo_tag) %> |
+ <%= link_to 'Back', todo_tags_path %>
+</div>

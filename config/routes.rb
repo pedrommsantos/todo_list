@@ -6,5 +6,6 @@ Rails.application.routes.draw do
       end
     end
   end
+  resources :todo_tags
   root "todo_lists#index"
 end
