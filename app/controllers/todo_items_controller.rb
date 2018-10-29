@@ -3,7 +3,6 @@ class TodoItemsController < ApplicationController
   before_action :set_todo_item, except: [:create]
   
   def create
-    byebug
     @todo_item = @todo_list.todo_items.create(todo_item_params)
     redirect_to @todo_list
   end
@@ -15,6 +14,14 @@ class TodoItemsController < ApplicationController
     else
       flash[:error] = "Todo list item was NOT deleted."
     end
+    redirect_to @todo_list
+  end
+
+  def edit
+  end
+
+  def update
+    @todo_item = @todo_list.todo_items.update(todo_item_params)
     redirect_to @todo_list
   end
 

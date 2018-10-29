@@ -12,9 +12,9 @@
 </p>
 -->
 <div id="todo_items_wrapper">
- <%= render @todo_list.todo_items %>
+ <%= render @todo_list.todo_items.includes(:todo_tags) %>
  <div id="form">
-  <%= render "todo_items/form" %>
+    <%= render partial: "todo_items/form", locals: { todo_item: @todo_list.todo_items.build }  %>
  </div>
 </div>
 <div class="links">

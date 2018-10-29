@@ -10,7 +10,7 @@
   </div>
   <div>
    <% todo_item.todo_tags.each do |todo_tag| %>
-  <p><%= todo_tag.content %></p>
+   <p><%= link_to todo_tag.content, todo_tag %></p>
    <% end %>
   </div>
   <div class="trash">
@@ -25,15 +25,13 @@
    <% end %>
   </div>
   <div class="todo_item">
-   <p><%= todo_item.content %></p>
+   <p><%= link_to todo_item.content, edit_todo_list_todo_item_path(@todo_list, todo_item.id) %></p>
   </div>
-  
   <div>
    <% todo_item.todo_tags.each do |todo_tag| %>
-   <p><%= todo_tag.content %></p>
+   <p><%= link_to todo_tag.content, todo_tag %></p>
    <% end %>
   </div>
-
   <div class="trash">
    <%= link_to todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data: { confirm: "Are you sure?" } do %>
     <i class="fa fa-trash"></i>

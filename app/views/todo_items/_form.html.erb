@@ -1,6 +1,6 @@
-<%= form_for([@todo_list, @todo_list.todo_items.build]) do |f| %>
+<%= form_for([@todo_list, todo_item]) do |f| %>
   <%= f.text_field :content, placeholder: "New Todo" %>
-  <%= f.submit %>
-
   <%= f.collection_check_boxes :todo_tag_ids, TodoTag.all, :id, :content %>
+  <%= f.submit %>
 <% end %>
+

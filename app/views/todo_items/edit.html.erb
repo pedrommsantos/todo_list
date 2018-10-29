@@ -1,0 +1,4 @@
+<h1 class="todo_list_title">Editing Todo Item</h1>
+<%#= form_with(model:[@todo_list, @todo_item], local: true) do |f| %>
+
+<%= render partial: "todo_items/form", locals: { todo_item: @todo_item }  %>
