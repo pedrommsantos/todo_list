@@ -40,7 +40,9 @@ class TodoTagsController < ApplicationController
   private
 
   def set_todo_tag
+    # @todo_tag = TodoTag.includes(todo_items: [:todo_list])#.where(todo_lists: { archived: false })
     @todo_tag = TodoTag.find(params[:id])
+    @obj = @todo_tag.todo_items.includes(:todo_list).where(todo_lists: { archived: false })
   end
 
   def todo_tag_params

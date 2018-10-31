@@ -1,12 +1,11 @@
-<p id="notice"><%= notice %></p>
 <h2 class="todo_list_title">Tag Content</h2><br>
 <p class="todo_list_sub_title"><%= @todo_tag.content %></p>
 <div>
-  <% @todo_tag.todo_items.each do |todo_item| %>
+  <% @obj.each do |todo_item| %>
     <p><%= link_to todo_item.content, todo_list_path(todo_item.todo_list.id) %> | 
     <%= link_to todo_item.todo_list.title, todo_lists_path(todo_item.todo_list.id) %></p>
-
   <% end %>
+  
 </div>
 <div class="links">
  <%= link_to 'Delete', todo_tag_path(@todo_tag.id), method: :delete, data: { confirm: "Are you sure?" } %> |

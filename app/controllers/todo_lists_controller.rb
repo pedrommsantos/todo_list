@@ -1,10 +1,10 @@
 class TodoListsController < ApplicationController
-  before_action :set_todo_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_todo_list, only: [:show, :edit, :update, :destroy, :archive_toggle]
 
   # GET /todo_lists
   # GET /todo_lists.json
   def index
-    @todo_lists = TodoList.all
+    @todo_lists = TodoList.where(archived: false)
   end
 
   # GET /todo_lists/1
@@ -62,6 +62,20 @@ class TodoListsController < ApplicationController
     end
   end
 
+  def archive_toggle
+    if @todo_list.archived?
+      @todo_list.update_attribute(:archived, false)
+      redirect_to archived_todo_lists_path, notice: "Todo list unarchived!"
+    else
+      @todo_list.update_attribute(:archived, true)
+      redirect_to todo_lists_path, notice: "Todo list archived!"
+    end
+  end
+
+  def archived
+    @todo_lists = TodoList.where(archived: true)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_todo_list
@@ -73,3 +87,4 @@ class TodoListsController < ApplicationController
       params.require(:todo_list).permit(:title, :description)
     end
 end
+

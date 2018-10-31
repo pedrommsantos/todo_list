@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_25_093011) do
+ActiveRecord::Schema.define(version: 2018_10_30_135912) do
 
   create_table "todo_items", force: :cascade do |t|
     t.string "content"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2018_10_25_093011) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "archived"
   end
 
   create_table "todo_tags", force: :cascade do |t|

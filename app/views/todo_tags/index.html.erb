@@ -1,10 +1,6 @@
-<h1>tags</h1>
- 
- <%= link_to 'new tag', new_todo_tag_path %>
+<h2 class="todo_list_title">Associated Items</h2>
+ <br><br>
 <table>
-  <tr>
-    <th>Tag Name</th>
-  </tr>
  
   <% @todo_tags.each do |todo_tag| %>
     <tr>
@@ -15,3 +11,7 @@
     </tr>
   <% end %>
 </table>
+
+<br>
+ <%= link_to 'new tag', new_todo_tag_path %>
+ 

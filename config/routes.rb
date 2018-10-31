@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   resources :todo_lists do
-     resources :todo_items do
+    member do
+      patch :archive_toggle
+    end
+
+    collection do
+      get :archived
+    end
+
+    resources :todo_items do
       member do
        patch :complete
       end
